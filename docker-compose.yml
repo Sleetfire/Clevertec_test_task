@@ -1,0 +1,32 @@
+version: '3.5'
+services:
+  db:
+    build: postgresql
+    image: receipt_postgresql:1.0.0
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12378
+    ports:
+      - "5432:5432"
+    networks:
+      - receipt_ntwrk
+  pgadmin:
+    build: pgadmin
+    image: receipt_pgadmin:1.0.0
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: barkovskiy2000@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "82:80"
+    networks:
+      - receipt_ntwrk
+  check_runner:
+    build: check_runner
+    image: check_runner:1.0.0
+    networks:
+      - receipt_ntwrk
+networks:
+    receipt_ntwrk:
+      name: receipt_ntwrk
