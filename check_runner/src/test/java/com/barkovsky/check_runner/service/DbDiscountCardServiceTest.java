@@ -1,5 +1,6 @@
 package com.barkovsky.check_runner.service;
 
+import com.barkovsky.check_runner.exception.EssenceNotFoundException;
 import com.barkovsky.check_runner.model.dto.DiscountCard;
 import com.barkovsky.check_runner.service.api.IDiscountCardService;
 import org.junit.jupiter.api.DisplayName;
@@ -25,6 +26,14 @@ class DbDiscountCardServiceTest {
         DiscountCard fromDb = this.discountCardService.get(saved.getId());
         assertEquals(saved.getId(), fromDb.getId());
         assertEquals(discountCard.getDiscountPercent(), fromDb.getDiscountPercent());
+    }
+
+    @Test
+    @DisplayName("Throwing not found exception")
+    void throwNotFoundException() {
+        EssenceNotFoundException exception = assertThrows(EssenceNotFoundException.class,
+                () -> this.discountCardService.get(100));
+        assertEquals("Discount card with id: 100 doesn't exist", exception.getMessage());
     }
 
     private DiscountCard getTestDiscountCard() {

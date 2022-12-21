@@ -42,7 +42,7 @@ public class DbProductService implements IProductService {
     public List<Product> get() {
         List<ProductEntity> productEntities = this.productRepository.findAll();
         if (productEntities.isEmpty()) {
-            throw new EssenceNotFoundException("Essences don't exists");
+            throw new EssenceNotFoundException("Products don't exists");
         }
         List<Product> result = new ArrayList<>();
         productEntities.forEach(productEntity -> result.add(this.conversionService.convert(productEntity, Product.class)));
@@ -53,7 +53,7 @@ public class DbProductService implements IProductService {
     public Product get(long id) {
         Optional<ProductEntity> optionalProductEntity = this.productRepository.findById(id);
         if (optionalProductEntity.isEmpty()) {
-            throw new EssenceNotFoundException("Essence with id: " + id + " doesn't exist");
+            throw new EssenceNotFoundException("Product with id: " + id + " doesn't exist");
         }
         return this.conversionService.convert(optionalProductEntity.get(), Product.class);
     }

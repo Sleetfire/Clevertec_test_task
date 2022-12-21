@@ -1,9 +1,6 @@
 package com.barkovsky.check_runner.controller.advice;
 
-import com.barkovsky.check_runner.exception.ConversionException;
-import com.barkovsky.check_runner.exception.DeserializationException;
-import com.barkovsky.check_runner.exception.EssenceNotFoundException;
-import com.barkovsky.check_runner.exception.SerializationException;
+import com.barkovsky.check_runner.exception.*;
 import com.barkovsky.check_runner.model.error.SingleResponseError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +27,11 @@ public class GlobalExceptionAdvice {
 
     @ExceptionHandler(SerializationException.class)
     public ResponseEntity<SingleResponseError> handleSerializationException(SerializationException exception) {
+        return new ResponseEntity<>(new SingleResponseError(exception.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<SingleResponseError> handleValidationException(ValidationException exception) {
         return new ResponseEntity<>(new SingleResponseError(exception.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

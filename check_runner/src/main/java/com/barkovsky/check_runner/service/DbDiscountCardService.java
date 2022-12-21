@@ -42,7 +42,7 @@ public class DbDiscountCardService implements IDiscountCardService {
     public List<DiscountCard> get() {
         List<DiscountCardEntity> discountCardEntities = this.discountCardRepository.findAll();
         if (discountCardEntities.isEmpty()) {
-            throw new EssenceNotFoundException("Essences don't exist");
+            throw new EssenceNotFoundException("Discount cards don't exist");
         }
         List<DiscountCard> result = new ArrayList<>();
         discountCardEntities.forEach(discountCardEntity -> result.add(
@@ -56,7 +56,7 @@ public class DbDiscountCardService implements IDiscountCardService {
     public DiscountCard get(long id) {
         Optional<DiscountCardEntity> optionalDiscountCardEntity = this.discountCardRepository.findById(id);
         if (optionalDiscountCardEntity.isEmpty()) {
-            throw new EssenceNotFoundException("Essence doesn't exits");
+            throw new EssenceNotFoundException("Discount card with id: " + id + " doesn't exist");
         }
         return this.conversionService.convert(optionalDiscountCardEntity.get(), DiscountCard.class);
     }

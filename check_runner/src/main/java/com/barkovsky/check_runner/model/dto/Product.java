@@ -12,14 +12,14 @@ public class Product {
     private String description;
     @JsonProperty("price")
     private BigDecimal price;
-    @JsonProperty("is_discount")
-    private boolean isDiscount;
+    @JsonProperty("discount")
+    private boolean discount;
 
-    public Product(long id, String description, BigDecimal price, boolean isDiscount) {
+    public Product(long id, String description, BigDecimal price, boolean discount) {
         this.id = id;
         this.description = description;
         this.price = price;
-        this.isDiscount = isDiscount;
+        this.discount = discount;
     }
 
     public Product() {
@@ -50,11 +50,11 @@ public class Product {
     }
 
     public boolean isDiscount() {
-        return isDiscount;
+        return discount;
     }
 
     public void setDiscount(boolean discount) {
-        isDiscount = discount;
+        this.discount = discount;
     }
 
     @Override
@@ -63,14 +63,14 @@ public class Product {
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
         return id == product.id
-                && isDiscount == product.isDiscount
+                && discount == product.discount
                 && Objects.equals(description, product.description)
                 && Objects.equals(price, product.price);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description, price, isDiscount);
+        return Objects.hash(id, description, price, discount);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class Product {
                 "id=" + id +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", isDiscount=" + isDiscount +
+                ", isDiscount=" + discount +
                 '}';
     }
 
