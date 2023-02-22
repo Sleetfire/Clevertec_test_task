@@ -8,8 +8,8 @@ import com.barkovsky.check_runner.service.api.IShopService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -72,23 +72,24 @@ class ShopServiceTest {
                 .contains("$16,00");
     }
 
-//    @ParameterizedTest(name = "{index} - {0}")
-//    @MethodSource("getTestMapWithOutDiscountCard")
-//    @DisplayName("Make order from map without discount card")
-//    void checkMakeOrderWithMapWithoutDiscountCardShouldReturnReceipt(Map<String, String> testMap) {
-//        Product product = Product.Builder.createBuilder()
-//                .setId(1L)
-//                .setDescription("test")
-//                .setPrice(BigDecimal.valueOf(2))
-//                .setDiscount(false)
-//                .build();
-//        Mockito.when(this.productService.get(1L)).thenReturn(product);
-//
-//        String receipt = this.shopService.makeOrder(testMap);
-//        Assertions.assertThat(receipt)
-//                .doesNotContain("DISCOUNT", "-$4,00")
-//                .contains("$20,00");
-//    }
+    @ParameterizedTest(name = "{index} - {0}")
+    @MethodSource("getTestMapWithOutDiscountCard")
+    @DisplayName("Make order from map without discount card")
+    @Disabled
+    void checkMakeOrderWithMapWithoutDiscountCardShouldReturnReceipt(Map<String, String> testMap) {
+        Product product = Product.Builder.createBuilder()
+                .setId(1L)
+                .setDescription("test")
+                .setPrice(BigDecimal.valueOf(2))
+                .setDiscount(false)
+                .build();
+        Mockito.when(this.productService.get(1L)).thenReturn(product);
+
+        String receipt = this.shopService.makeOrder(testMap);
+        Assertions.assertThat(receipt)
+                .doesNotContain("DISCOUNT", "-$4,00")
+                .contains("$20,00");
+    }
 
     @ParameterizedTest(name = "{index} - {0}")
     @MethodSource("getProductList")

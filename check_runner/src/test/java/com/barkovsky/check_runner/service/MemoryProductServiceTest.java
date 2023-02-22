@@ -1,7 +1,6 @@
 package com.barkovsky.check_runner.service;
 
 import com.barkovsky.check_runner.exception.EssenceNotFoundException;
-import com.barkovsky.check_runner.model.dto.OrderProduct;
 import com.barkovsky.check_runner.model.dto.Product;
 import com.barkovsky.check_runner.repository.memory_repository.MemoryProductRepository;
 import com.barkovsky.check_runner.repository.memory_repository.api.IProductRepository;
@@ -14,10 +13,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
-import org.mockito.MockitoSession;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.context.event.annotation.PrepareTestInstance;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -40,43 +36,41 @@ class MemoryProductServiceTest {
     @AfterEach
     void tearDown() {
         Mockito.reset(this.productRepository);
-        //Mockito.clearAllCaches();
-        //Mockito.clearInvocations();
     }
 
     @ParameterizedTest(name = "{index} - {0}")
     @MethodSource("getProduct")
     @DisplayName("Adding product to the memory storage")
+    @Disabled
     void checkAddShouldReturnProduct(Product product) {
-//        try (MockedStatic<MemoryProductRepository> productRepositoryMock = Mockito.mockStatic(MemoryProductRepository.class)) {
-//            productRepositoryMock.when(MemoryProductRepository::getInstance).thenReturn(productRepository);
-//
-//            IProductService productService = MemoryProductService.getInstance();
-//
-//            when(productRepository.add(product)).thenReturn(product);
-//            //when(productRepository.add(product)).thenAnswer(invocation -> invocation.getArgument(0));
-//
-//            Product productFromDb = productService.add(product);
-//            System.out.println(productFromDb);
-//            Assertions.assertThat(productFromDb).isEqualTo(product);
-//        }
+        try (MockedStatic<MemoryProductRepository> productRepositoryMock = Mockito.mockStatic(MemoryProductRepository.class)) {
+            productRepositoryMock.when(MemoryProductRepository::getInstance).thenReturn(productRepository);
+
+            IProductService productService = MemoryProductService.getInstance();
+
+            when(productRepository.add(product)).thenReturn(product);
+
+            Product productFromDb = productService.add(product);
+            System.out.println(productFromDb);
+            Assertions.assertThat(productFromDb).isEqualTo(product);
+        }
     }
 
     @ParameterizedTest(name = "{index} - {0}")
     @MethodSource("getProduct")
     @DisplayName("Getting product by id from memory storage")
+    @Disabled
     void checkGetShouldReturnProduct(Product product) {
-//        try (MockedStatic<MemoryProductRepository> productRepositoryMock = Mockito.mockStatic(MemoryProductRepository.class)) {
-//            productRepositoryMock.when(MemoryProductRepository::getInstance).thenReturn(productRepository);
-//
-//            IProductService productService = MemoryProductService.getInstance();
-//
-//            //doReturn(product).when(this.productRepository).get(1);
-//            when(productRepository.get(2)).thenReturn(product);
-//
-//            Product productFromDb = productService.get(2);
-//            Assertions.assertThat(productFromDb).isEqualTo(product);
-//        }
+        try (MockedStatic<MemoryProductRepository> productRepositoryMock = Mockito.mockStatic(MemoryProductRepository.class)) {
+            productRepositoryMock.when(MemoryProductRepository::getInstance).thenReturn(productRepository);
+
+            IProductService productService = MemoryProductService.getInstance();
+
+            when(productRepository.get(2)).thenReturn(product);
+
+            Product productFromDb = productService.get(2);
+            Assertions.assertThat(productFromDb).isEqualTo(product);
+        }
     }
 
     @Test
