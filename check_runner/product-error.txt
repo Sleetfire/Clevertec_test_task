@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "description": "Apple",
+        "price": 1,
+        "discount_": true
+    },
+    {
+        "id": 2,
+        "description": "Pear",
+        "price": 0.8,
+        "discount": false
+    },
+    {
+        "id": 3,
+        "description": "Orange",
+        "price": 1.5,
+        "discount": false
+    },
+    {
+        "id": 4,
+        "description": "Lemon",
+        "price": 3,
+        "discount": false
+    },
+	{
+        "id": 5,
+        "description": "Banana",
+        "price": 2.1,
+        "discount": false
+    },
+	{
+        "id": 6,
+        "description": "Cherry",
+        "price": 12.3,
+        "discount": true
+    },
+	{
+        "id": 7,
+        "description": "Strawberry",
+        "price": 8.7,
+        "discount": false
+    },
+	{
+        "id": 8,
+        "description": "Peach",
+        "price": 3.9,
+        "discount": true
+    },
+	{
+        "id": 9,
+        "description": "Tangerine",
+        "price": 4,
+        "discount": true
+    },
+	{
+        "id": 10,
+        "description": "Grape",
+        "price": 6.2,
+        "discount": false
+    }
+]
