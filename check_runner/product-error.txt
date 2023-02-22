@@ -3,7 +3,7 @@
         "id": 1,
         "description": "Apple",
         "price": 1,
-        "discount": true
+        "discount_": true
     },
     {
         "id": 2,
