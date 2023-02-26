@@ -4,12 +4,30 @@ import com.barkovsky.check_runner.reflection_task.entity.Student;
 
 public interface IStudentService {
 
-    Student get(int id);
+    /**
+     * Getting student by id
+     * @param id student's id
+     * @return student entity
+     */
+    Student get(long id);
 
+    /**
+     * Adding student
+     * @param student student's entity
+     */
     void add(Student student);
 
-    void delete(int id);
+    /**
+     * Deleting student by id
+     * @param id student's id
+     */
+    void delete(long id);
 
-    void update(int id, Student updatedStudent);
+    /**
+     * Updating student
+     * @param id student's id
+     * @param updatedStudent student's entity with updated fields
+     */
+    void update(long id, Student updatedStudent);
 
 }
