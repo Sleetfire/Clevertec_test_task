@@ -9,10 +9,10 @@ import java.util.Optional;
 
 public class StudentDAO implements IStudentDAO {
 
-    private final Map<Integer, Student> content = new HashMap<>();
+    private final Map<Long, Student> content = new HashMap<>();
 
     @Override
-    public Optional<Student> get(int id) {
+    public Optional<Student> get(long id) {
         return Optional.ofNullable(content.get(id));
     }
 
@@ -22,12 +22,12 @@ public class StudentDAO implements IStudentDAO {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         this.content.remove(id);
     }
 
     @Override
-    public void update(int id, Student updatedStudent) {
+    public void update(long id, Student updatedStudent) {
         this.content.replace(id, updatedStudent);
     }
 }
