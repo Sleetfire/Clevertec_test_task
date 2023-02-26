@@ -100,11 +100,6 @@ public class LRUCache<K, V> implements ICache<K, V> {
         temp.prev = node;
     }
 
-    /**
-     * Tail reference indicates to head and head reference indicates to tail
-     *
-     * @param node
-     */
     private void remove(DoublyLinkedNode node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
