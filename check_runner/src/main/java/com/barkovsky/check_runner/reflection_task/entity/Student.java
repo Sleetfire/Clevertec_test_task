@@ -1,35 +1,41 @@
 package com.barkovsky.check_runner.reflection_task.entity;
 
-import java.util.List;
-import java.util.Map;
+import com.barkovsky.check_runner.reflection_task.annotation.Password;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Student {
 
-    private int id;
+    private long id;
     private String firstName;
     private String lastName;
+    @Email
     private String email;
-    private List<String> friends;
-    private Map<String, Integer> marks;
+    @Pattern(regexp = "^(\\+375|80)(29|25|44|33)(\\d{3})(\\d{2})(\\d{2})$")
+    private String phoneNumber;
+    @Password
+    private char[] password;
 
-    public Student(int id, String firstName, String lastName, String email, List<String> friends, Map<String, Integer> marks) {
+    public Student(long id, String firstName, String lastName, String email, String phoneNumber, char[] password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.friends = friends;
-        this.marks = marks;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 
     public Student() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -57,20 +63,20 @@ public class Student {
         this.email = email;
     }
 
-    public List<String> getFriends() {
-        return friends;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setFriends(List<String> friends) {
-        this.friends = friends;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public Map<String, Integer> getMarks() {
-        return marks;
+    public char[] getPassword() {
+        return password;
     }
 
-    public void setMarks(Map<String, Integer> marks) {
-        this.marks = marks;
+    public void setPassword(char[] password) {
+        this.password = password;
     }
 
     @Override
@@ -82,13 +88,15 @@ public class Student {
                 && Objects.equals(firstName, student.firstName)
                 && Objects.equals(lastName, student.lastName)
                 && Objects.equals(email, student.email)
-                && Objects.equals(friends, student.friends)
-                && Objects.equals(marks, student.marks);
+                && Objects.equals(phoneNumber, student.phoneNumber)
+                && Arrays.equals(password, student.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.firstName, this.lastName, this.email, this.friends, this.marks);
+        int result = Objects.hash(id, firstName, lastName, email, phoneNumber);
+        result = 31 * result + Arrays.hashCode(password);
+        return result;
     }
 
     @Override
@@ -98,24 +106,28 @@ public class Student {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", friends=" + friends +
-                ", marks=" + marks +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", password=" + Arrays.toString(password) +
                 '}';
     }
 
     public static class Builder {
-        private int id;
+        private long id;
         private String firstName;
         private String lastName;
         private String email;
-        private List<String> friends;
-        private Map<String, Integer> marks;
+        private String phoneNumber;
+        private char[] password;
+
+        private Builder() {
+
+        }
 
         public static Builder createBuilder() {
             return new Builder();
         }
 
-        public Builder setId(int id) {
+        public Builder setId(long id) {
             this.id = id;
             return this;
         }
@@ -135,18 +147,18 @@ public class Student {
             return this;
         }
 
-        public Builder setFriends(List<String> friends) {
-            this.friends = friends;
+        public Builder setPhoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
             return this;
         }
 
-        public Builder setMarks(Map<String, Integer> marks) {
-            this.marks = marks;
+        public Builder setPassword(char[] password) {
+            this.password = password;
             return this;
         }
 
         public Student build() {
-            return new Student(this.id, this.firstName, this.lastName, this.email, this.friends, this.marks);
+            return new Student(this.id, this.firstName, this.lastName, this.email, this.phoneNumber, this.password);
         }
     }
 }
