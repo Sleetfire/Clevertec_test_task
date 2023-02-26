@@ -2,22 +2,28 @@ package com.barkovsky.check_runner.reflection_task.service;
 
 import com.barkovsky.check_runner.exception.EssenceNotFoundException;
 import com.barkovsky.check_runner.reflection_task.dao.api.IStudentDAO;
+import com.barkovsky.check_runner.reflection_task.dao.proxy.StudentDAOProxy;
 import com.barkovsky.check_runner.reflection_task.entity.Student;
 import com.barkovsky.check_runner.reflection_task.service.api.IStudentService;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Proxy;
 import java.util.Optional;
 
 public class StudentService implements IStudentService {
 
-    private final IStudentDAO studentDAO;
+    private final IStudentDAO proxy;
 
     public StudentService(IStudentDAO studentDAO) {
-        this.studentDAO = studentDAO;
+        InvocationHandler handler = new StudentDAOProxy(studentDAO);
+        Class[] classes = new Class[]{IStudentDAO.class};
+        proxy = (IStudentDAO) Proxy.newProxyInstance(IStudentDAO.class.getClassLoader(), classes, handler);
+
     }
 
     @Override
-    public Student get(int id) {
-        Optional<Student> optionalStudent = this.studentDAO.get(id);
+    public Student get(long id) {
+        Optional<Student> optionalStudent = this.proxy.get(id);
         if (optionalStudent.isEmpty()) {
             throw new EssenceNotFoundException("Essence with id " + id + " doesn't exist");
         }
@@ -26,16 +32,16 @@ public class StudentService implements IStudentService {
 
     @Override
     public void add(Student student) {
-        this.studentDAO.add(student);
+        this.proxy.add(student);
     }
 
     @Override
-    public void delete(int id) {
-        this.studentDAO.delete(id);
+    public void delete(long id) {
+        this.proxy.delete(id);
     }
 
     @Override
-    public void update(int id, Student updatedStudent) {
-        this.studentDAO.update(id, updatedStudent);
+    public void update(long id, Student updatedStudent) {
+        this.proxy.update(id, updatedStudent);
     }
 }
