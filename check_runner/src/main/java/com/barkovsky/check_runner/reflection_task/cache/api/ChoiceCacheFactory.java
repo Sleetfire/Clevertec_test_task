@@ -2,12 +2,13 @@ package com.barkovsky.check_runner.reflection_task.cache.api;
 
 import com.barkovsky.check_runner.reflection_task.cache.LFUCache;
 import com.barkovsky.check_runner.reflection_task.cache.LRUCache;
+import com.barkovsky.check_runner.reflection_task.entity.Student;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
 public class ChoiceCacheFactory implements ICacheFactory {
 
-    private final ICache<Integer, String> cache;
+    private final ICache cache;
 
     public ChoiceCacheFactory() {
         String algorithm = this.getAlgorithm();
@@ -27,10 +28,15 @@ public class ChoiceCacheFactory implements ICacheFactory {
         return this.cache;
     }
 
+    @Override
+    public ICache<Long, Student> getStudentCache() {
+        return this.cache;
+    }
+
     private int getCapacity() {
         PropertiesConfiguration configuration = new PropertiesConfiguration();
         try {
-            configuration.load("application.yaml");
+            configuration.load("application.yml");
         } catch (ConfigurationException e) {
             e.printStackTrace();
         }
@@ -40,7 +46,7 @@ public class ChoiceCacheFactory implements ICacheFactory {
     private String getAlgorithm() {
         PropertiesConfiguration configuration = new PropertiesConfiguration();
         try {
-            configuration.load("application.yaml");
+            configuration.load("application.yml");
         } catch (ConfigurationException e) {
             e.printStackTrace();
         }
