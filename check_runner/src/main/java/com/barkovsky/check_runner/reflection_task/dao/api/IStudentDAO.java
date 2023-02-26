@@ -6,12 +6,30 @@ import java.util.Optional;
 
 public interface IStudentDAO {
 
-    Optional<Student> get(int id);
+    /**
+     * Getting student from the storage
+     * @param id student's id
+     * @return student in Optional wrapper
+     */
+    Optional<Student> get(long id);
 
+    /**
+     * Adding student to the storage
+     * @param student student's entity
+     */
     void add(Student student);
 
-    void delete(int id);
+    /**
+     * Deleting student from the storage
+     * @param id student's id
+     */
+    void delete(long id);
 
-    void update(int id, Student updatedStudent);
+    /**
+     * Updating student in storage
+     * @param id student's id
+     * @param updatedStudent student's entity with updated fields
+     */
+    void update(long id, Student updatedStudent);
 
 }
