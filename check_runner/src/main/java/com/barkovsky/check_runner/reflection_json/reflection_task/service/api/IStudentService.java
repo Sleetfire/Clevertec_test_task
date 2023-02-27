@@ -1,6 +1,6 @@
-package com.barkovsky.check_runner.reflection_task.service.api;
+package com.barkovsky.check_runner.reflection_json.reflection_task.service.api;
 
-import com.barkovsky.check_runner.reflection_task.entity.Student;
+import com.barkovsky.check_runner.reflection_json.reflection_task.entity.Student;
 
 public interface IStudentService {
 

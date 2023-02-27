@@ -1,6 +1,6 @@
-package com.barkovsky.check_runner.reflection_task.cache.api;
+package com.barkovsky.check_runner.reflection_json.reflection_task.cache.api;
 
-import com.barkovsky.check_runner.reflection_task.entity.Student;
+import com.barkovsky.check_runner.reflection_json.reflection_task.entity.Student;
 
 public interface ICacheFactory {
 

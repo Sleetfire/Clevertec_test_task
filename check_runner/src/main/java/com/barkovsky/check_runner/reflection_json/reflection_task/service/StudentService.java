@@ -1,10 +1,10 @@
-package com.barkovsky.check_runner.reflection_task.service;
+package com.barkovsky.check_runner.reflection_json.reflection_task.service;
 
 import com.barkovsky.check_runner.exception.EssenceNotFoundException;
-import com.barkovsky.check_runner.reflection_task.dao.api.IStudentDAO;
-import com.barkovsky.check_runner.reflection_task.dao.proxy.StudentDAOProxy;
-import com.barkovsky.check_runner.reflection_task.entity.Student;
-import com.barkovsky.check_runner.reflection_task.service.api.IStudentService;
+import com.barkovsky.check_runner.reflection_json.reflection_task.dao.api.IStudentDAO;
+import com.barkovsky.check_runner.reflection_json.reflection_task.dao.proxy.StudentDAOProxy;
+import com.barkovsky.check_runner.reflection_json.reflection_task.service.api.IStudentService;
+import com.barkovsky.check_runner.reflection_json.reflection_task.entity.Student;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;

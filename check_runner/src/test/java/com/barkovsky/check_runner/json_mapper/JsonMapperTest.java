@@ -1,6 +1,7 @@
 package com.barkovsky.check_runner.json_mapper;
 
-import com.barkovsky.check_runner.json_mapper.dto.TestDto;
+import com.barkovsky.check_runner.reflection_json.json_mapper.JsonMapper;
+import com.barkovsky.check_runner.reflection_json.json_mapper.dto.TestDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
@@ -9,8 +10,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class JsonMapperTest {
 

@@ -1,10 +1,10 @@
-package com.barkovsky.check_runner.reflection_task.dao.proxy;
+package com.barkovsky.check_runner.reflection_json.reflection_task.dao.proxy;
 
-import com.barkovsky.check_runner.reflection_task.cache.api.ChoiceCacheFactory;
-import com.barkovsky.check_runner.reflection_task.cache.api.ICache;
-import com.barkovsky.check_runner.reflection_task.cache.api.ICacheFactory;
-import com.barkovsky.check_runner.reflection_task.dao.api.IStudentDAO;
-import com.barkovsky.check_runner.reflection_task.entity.Student;
+import com.barkovsky.check_runner.reflection_json.reflection_task.cache.api.ChoiceCacheFactory;
+import com.barkovsky.check_runner.reflection_json.reflection_task.cache.api.ICache;
+import com.barkovsky.check_runner.reflection_json.reflection_task.cache.api.ICacheFactory;
+import com.barkovsky.check_runner.reflection_json.reflection_task.dao.api.IStudentDAO;
+import com.barkovsky.check_runner.reflection_json.reflection_task.entity.Student;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

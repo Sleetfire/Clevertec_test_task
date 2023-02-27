@@ -1,4 +1,4 @@
-package com.barkovsky.check_runner.json_mapper.dto;
+package com.barkovsky.check_runner.reflection_json.json_mapper.dto;
 
 import java.util.Arrays;
 

@@ -1,10 +1,11 @@
 package com.barkovsky.check_runner.reflection_task.service;
 
 import com.barkovsky.check_runner.exception.EssenceNotFoundException;
-import com.barkovsky.check_runner.reflection_task.dao.StudentDAO;
-import com.barkovsky.check_runner.reflection_task.dao.api.IStudentDAO;
-import com.barkovsky.check_runner.reflection_task.entity.Student;
-import com.barkovsky.check_runner.reflection_task.service.api.IStudentService;
+import com.barkovsky.check_runner.reflection_json.reflection_task.dao.StudentDAO;
+import com.barkovsky.check_runner.reflection_json.reflection_task.dao.api.IStudentDAO;
+import com.barkovsky.check_runner.reflection_json.reflection_task.entity.Student;
+import com.barkovsky.check_runner.reflection_json.reflection_task.service.StudentService;
+import com.barkovsky.check_runner.reflection_json.reflection_task.service.api.IStudentService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,8 +15,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class StudentServiceTest {
 

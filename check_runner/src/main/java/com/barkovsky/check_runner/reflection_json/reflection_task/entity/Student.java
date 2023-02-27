@@ -1,6 +1,6 @@
-package com.barkovsky.check_runner.reflection_task.entity;
+package com.barkovsky.check_runner.reflection_json.reflection_task.entity;
 
-import com.barkovsky.check_runner.reflection_task.annotation.Password;
+import com.barkovsky.check_runner.reflection_json.reflection_task.annotation.Password;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;

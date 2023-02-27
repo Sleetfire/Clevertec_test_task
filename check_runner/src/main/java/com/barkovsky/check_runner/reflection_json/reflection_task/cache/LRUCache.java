@@ -1,6 +1,6 @@
-package com.barkovsky.check_runner.reflection_task.cache;
+package com.barkovsky.check_runner.reflection_json.reflection_task.cache;
 
-import com.barkovsky.check_runner.reflection_task.cache.api.ICache;
+import com.barkovsky.check_runner.reflection_json.reflection_task.cache.api.ICache;
 
 import java.util.HashMap;
 import java.util.Map;

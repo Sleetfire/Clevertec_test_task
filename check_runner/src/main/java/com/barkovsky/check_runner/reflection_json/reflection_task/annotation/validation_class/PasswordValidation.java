@@ -1,6 +1,6 @@
-package com.barkovsky.check_runner.reflection_task.annotation.validation_class;
+package com.barkovsky.check_runner.reflection_json.reflection_task.annotation.validation_class;
 
-import com.barkovsky.check_runner.reflection_task.annotation.Password;
+import com.barkovsky.check_runner.reflection_json.reflection_task.annotation.Password;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

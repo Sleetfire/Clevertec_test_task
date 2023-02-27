@@ -1,7 +1,7 @@
-package com.barkovsky.check_runner.reflection_task.dao;
+package com.barkovsky.check_runner.reflection_json.reflection_task.dao;
 
-import com.barkovsky.check_runner.reflection_task.dao.api.IStudentDAO;
-import com.barkovsky.check_runner.reflection_task.entity.Student;
+import com.barkovsky.check_runner.reflection_json.reflection_task.dao.api.IStudentDAO;
+import com.barkovsky.check_runner.reflection_json.reflection_task.entity.Student;
 
 import java.util.HashMap;
 import java.util.Map;

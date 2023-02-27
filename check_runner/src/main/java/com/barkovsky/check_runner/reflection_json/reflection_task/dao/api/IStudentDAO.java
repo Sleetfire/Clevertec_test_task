@@ -1,6 +1,6 @@
-package com.barkovsky.check_runner.reflection_task.dao.api;
+package com.barkovsky.check_runner.reflection_json.reflection_task.dao.api;
 
-import com.barkovsky.check_runner.reflection_task.entity.Student;
+import com.barkovsky.check_runner.reflection_json.reflection_task.entity.Student;
 
 import java.util.Optional;
 

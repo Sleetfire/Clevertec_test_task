@@ -1,6 +1,7 @@
 package com.barkovsky.check_runner.reflection_task.cache;
 
-import com.barkovsky.check_runner.reflection_task.cache.api.ICache;
+import com.barkovsky.check_runner.reflection_json.reflection_task.cache.LFUCache;
+import com.barkovsky.check_runner.reflection_json.reflection_task.cache.api.ICache;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,8 +11,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class LFUCacheTest {
 
