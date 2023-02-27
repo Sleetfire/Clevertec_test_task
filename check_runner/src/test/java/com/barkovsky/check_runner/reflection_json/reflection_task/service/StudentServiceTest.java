@@ -1,4 +1,4 @@
-package com.barkovsky.check_runner.reflection_task.service;
+package com.barkovsky.check_runner.reflection_json.reflection_task.service;
 
 import com.barkovsky.check_runner.exception.EssenceNotFoundException;
 import com.barkovsky.check_runner.reflection_json.reflection_task.dao.StudentDAO;

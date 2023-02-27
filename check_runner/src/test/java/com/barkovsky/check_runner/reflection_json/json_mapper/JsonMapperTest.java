@@ -1,4 +1,4 @@
-package com.barkovsky.check_runner.json_mapper;
+package com.barkovsky.check_runner.reflection_json.json_mapper;
 
 import com.barkovsky.check_runner.reflection_json.json_mapper.JsonMapper;
 import com.barkovsky.check_runner.reflection_json.json_mapper.dto.TestDto;
