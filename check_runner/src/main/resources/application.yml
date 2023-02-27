@@ -7,3 +7,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/check_runner?ApplicationName=TestSweetApp
     username: postgres
     password: 12378
+
+cash-algorithm: LFU
+cash-capacity: 3
