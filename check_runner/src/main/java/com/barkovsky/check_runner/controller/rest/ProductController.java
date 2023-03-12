@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 
     private final IProductService productService;
@@ -22,8 +24,10 @@ public class ProductController {
     }
 
     @GetMapping(value = {"/", ""}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<Product>> getAll() {
-        return new ResponseEntity<>(this.productService.get(), HttpStatus.OK);
+    public ResponseEntity<Map<String, List<Product>>> getAll() {
+        Map<String, List<Product>> data = new HashMap<>();
+        data.put("data", this.productService.get());
+        return new ResponseEntity<>(data, HttpStatus.OK);
     }
 
 }
