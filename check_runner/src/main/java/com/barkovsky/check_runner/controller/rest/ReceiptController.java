@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/receipt")
+@RequestMapping("/receipts")
 public class ReceiptController {
 
     private final IShopService shopService;
@@ -24,8 +25,10 @@ public class ReceiptController {
     @PostMapping(value = {"/", ""},
             consumes = {MediaType.APPLICATION_JSON_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<String> create(@RequestBody Map<String, String> items) {
-        return new ResponseEntity<>(this.shopService.makeOrder(items), HttpStatus.CREATED);
+    public ResponseEntity<Map<String, String>> create(@RequestBody Map<String, String> items) {
+        Map<String, String> data = new HashMap<>();
+        data.put("data", this.shopService.makeOrder(items));
+        return new ResponseEntity<>(data, HttpStatus.CREATED);
     }
 
 }
